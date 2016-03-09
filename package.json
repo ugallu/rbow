@@ -1,0 +1,29 @@
+{
+  "name": "rbow",
+  "version": "1.0.0",
+  "description": "Webapplication for collaborative task solving",
+  "main": "index.js",
+  "dependencies": {
+    "nvm": "^0.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ugallu/rbow.git"
+  },
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "collaborative",
+    "task-solver"
+  ],
+  "author": "Istvan Gergely Olah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ugallu/rbow/issues"
+  },
+  "homepage": "https://github.com/ugallu/rbow#readme"
+}
