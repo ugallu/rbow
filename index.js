@@ -1,9 +1,11 @@
 var express = require('express');
 var app = express();
+var port = process.env.PORT || 3000
 
+// static stuff to root
 app.use('/', express.static('static'));
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+// start it
+app.listen(port, function () {
+  console.log('RBow started at port ' + port);
 });
-

@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.13.4",
+    "mongodb": "^2.1.7",
     "nvm": "^0.0.3"
   },
   "devDependencies": {},

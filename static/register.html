@@ -11,6 +11,7 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:600&effect=anaglyph' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="./js/nanobar.min.js"></script>
   <title>RBow</title>
 </head>
 <body>
@@ -62,4 +63,46 @@
     </div>
   </div>
 </body>
+<script>
+$.ajax({
+  xhr: function()
+  {
+    var xhr = new window.XMLHttpRequest();
+
+    var options = {
+        bg: '#1EAEDB',
+        // leave target blank for global nanobar
+        target: document.getElementById('myDivId'),
+        // id for new nanobar
+        id: 'nanoloader'
+    };
+    nanobar = new Nanobar( options );
+
+    //Upload progress
+    xhr.upload.addEventListener("progress", function(evt){
+      if (evt.lengthComputable) {
+        var percentComplete = evt.loaded / evt.total;
+        //Do something with upload progress
+        //nanobar.go(percentComplete);
+      }
+    }, false);
+    //Download progress
+    xhr.addEventListener("progress", function(evt){
+      if (evt.lengthComputable) {
+        var percentComplete = evt.loaded / evt.total;
+        //Do something with download progress
+        nanobar.go(percentComplete);
+      }
+    }, false);
+    return xhr;
+  },
+  type: 'GET',
+  url: "./bigstuff",
+  data: {},
+  success: function(data){
+    //Do something success-ish
+    nanobar.go(100);
+  }
+});
+</script>
 </html>
