@@ -1,0 +1,50 @@
+<%- include('innerHeader') -%>
+<body>
+<%- include('errorBox') -%>
+<div id="content" class="effect6 noselect five columns offset-by-three">
+
+</div>
+
+<div id="status" class="noselect">
+    <div id="navigation" class="five columns row offset-by-three">
+
+     <div id="menu_wrapper" class="eight columns">
+        <div id="tables_btn" class="nav_element">Tables</div>
+        <div id="functions_btn" class="nav_element">Functions</div>
+        <div id="mystuff_btn" class="nav_element" >My Stuff</div>
+        <div id="addtable_btn" class="nav_element" ><i class="fa fa-plus"></i>Table</div>
+        <div id="addfunction_btn" class="nav_element" ><i class="fa fa-plus"></i>Function</div>
+
+      </div>
+      <div id="processor_wrapper" class="two columns">
+        <div id="processing_button" title="stop processing" class="fa fa-stop"></i></div>
+        <div id="processing_status" class="flicker"></div>
+      </div>
+
+      <div id="profile_wrapper" class="two columns">
+        <div id="profile_btn" class="nav_element"><%= name %></div>
+        <form id="logoutform" action="/logout" method="post">
+        <div id="logout_btn" class="nav_element fa fa-power-off last" title="Logout"></div>
+        </form>
+      </div>
+    </div><!--  navig row -->
+  <div class="row">
+    <div id="processor_list" class="hidden five columns offset-by-three">
+      <ul id="processor_list_ul">
+
+      </ul>
+    </div>
+  </div>
+  <div class="row five columns offset-by-three">
+    <div id="expander"><i class="fa fa-sort-down"></i></div>
+  </div>
+</div>
+<script>
+
+$("#expander").click(function(){
+  $("#processor_list").slideToggle();
+});
+
+</script>
+</body>
+<%- include('outerFooter') -%>

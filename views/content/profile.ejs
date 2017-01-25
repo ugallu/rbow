@@ -1,0 +1,92 @@
+<div id="profile_page">
+
+  <div class="row">
+    <div class="five columns offset-by-one">
+        </br>
+      <h2>Profile</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="five columns offset-by-one">
+      <table class="u-full-width" id="tables">
+      <thead>
+        <tr>
+          <th>Statistics</th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>User points</td>
+          <td><%= user.points %></td>
+        </tr>
+        <tr>
+          <td>Tables</td>
+          <td><%= user.tableNumber %></td>
+        </tr>
+        <tr>
+          <td>Calculated cells</td>
+          <td><%= user.tableCells %></td>
+        </tr>
+        <tr>
+          <td>Functions</td>
+          <td><%= user.functionNumber %></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+  </div>
+  <form action="/user/profile" method="post">
+  <div class="row">
+    <div class="three columns offset-by-one">
+      <label for="userNameLabel">Name</label>
+    </div>
+    <div class="seven columns">
+      <input class="u-full-width" name="name" type="text" placeholder="<%= user.name %>" id="userName">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="three columns offset-by-one">
+      <label for="tableSearch">Email</label>
+    </div>
+    <div class="seven columns">
+      <input class="u-full-width" name="email" type="Email" placeholder="<%= user.email %>" id="userEmail">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="three columns offset-by-one">
+      <label for="tableSearch">Password</label>
+    </div>
+    <div class="seven columns">
+      <input class="u-full-width" name="password" type="password" placeholder="*****" id="userPassword">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="three columns offset-by-one">
+      <label for="tableSearch">Password again</label>
+    </div>
+    <div class="seven columns">
+      <input class="u-full-width" name="password2" type="password" placeholder="*****" id="userPassword2">
+    </div>
+  </div>
+  <div class="row">
+    <div class="two columns offset-by-six">
+      <input type="submit" class="button button-primary" value="Save" />
+    </div>
+  </div>
+  </form>
+  <div class="row">
+    <div class="three columns offset-by-six">
+      <form action="/user/delete" method="post">
+      <input type="submit" class="button" value="Delete User" />
+      </form>
+    </div>
+  </div>
+
+
+  </br>
+</div>

@@ -1,0 +1,21 @@
+<div id="table_page">
+
+  <div class="row">
+        <div class="ten columns offset-by-one">
+        </br>
+      <h2>MD5 table details</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="ten columns  offset-by-one">
+      <textarea readonly class="u-full-width" placeholder="console.log('Hello World!');" id="functionCode"><%- table._function.code -%></textarea>
+  </div>
+  <div class="row">
+    <div class="ten columns offset-by-one">
+      <% chunks.forEach(function(chunk){ %>
+          <div class="button chunk" data-id='<%- chunk.id -%>'>Chunk <%- chunk.name -%>  <%- chunk.status -%></div>
+      <% }); %>
+      </div>
+  </div>
+  </br>
+</div>

@@ -1,0 +1,40 @@
+<div id="add_function">
+
+<form action="/table" method="post">
+  <div class="row">
+        <div class="five columns offset-by-one">
+        </br>
+      <h2>Add Table</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="ten columns offset-by-one">
+      <label for="tableName">Table name</label>
+      <input name="table_name" class="u-full-width" type="text" placeholder="tableName" id="tableName">
+    </div>
+  </div>
+  <div class="row">
+    <div class="ten columns offset-by-one">
+      <label for="tableName">Select function</label>
+      <select name="table_function_id" class="u-full-width" id="functionSelector">
+        <% functions.forEach(function(func){ %>
+          <option value="<%= func.id %>"><%= func.name %></option>
+        <% }); %>
+      </select>
+    </div>
+  </div>
+  </br>
+  <div class="row">
+    <div class="ten columns  offset-by-one">
+      <label for="inputSet">Input - in JSON format</label>
+      <input type="textarea" name="table_inputs" class="u-full-width" placeholder="[['input0_param0','input0_param1'],['input1_param0','input1_param1']]" id="functionCode"></input>
+  </div>
+  </div>
+  <div class="row">
+    <div class="six columns offset-by-six">
+      <input class="button-primary" type="submit" value="Create">
+    </div>
+  </div>
+
+</form>
+</div>

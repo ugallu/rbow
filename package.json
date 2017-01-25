@@ -4,11 +4,17 @@
   "description": "Webapplication for collaborative task solving",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
     "express": "^4.13.4",
+    "express-session": "^1.13.0",
     "mongodb": "^2.1.7",
+    "mongoose": "~4.4.15",
     "nvm": "^0.0.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "istanbul": "~0.4.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

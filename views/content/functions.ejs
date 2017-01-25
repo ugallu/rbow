@@ -1,0 +1,88 @@
+<div id="functions_page">
+
+  <div id="codemodal" class="modal"><div class="modal-closer fa fa-times" onclick="$(this).parent().hide();"></div><div id="codecontent" class="modal-content"></div></div>
+  <div id="forkmodal" class="modal"><div class="modal-closer fa fa-times" onclick="$(this).parent().hide();"></div>
+  <div class="row">
+    <div class="twenty columns">
+      <input class="u-full-width" type="text" placeholder="functionName" id="forkfunctionName">
+      <div id="forkFunction" class="button">Fork!</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="row">
+        <div class="five columns offset-by-one">
+        </br>
+      <h2>Functions</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="ten columns offset-by-one">
+      <a href="functions?abc" class="button">ABC</a>
+      <a href="functions?date" class="button">Latest</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="seven columns offset-by-one">
+        <input class="u-full-width" type="text" placeholder="functionName" id="functionName">
+    </div>
+    <div class="two columns">
+      <div id="searchFunction" class="button">Search</div>
+    </div>
+  </div>
+  </br>
+  <div class="row">
+    <div class="ten columns offset-by-one">
+  <table class="u-full-width" id="tables">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Rec</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% functions.forEach(function(func){ %>
+      <tr>
+        <td><%= func.name %></td>
+        <td><%= func.size %></td>
+        <td><%= func.upvote %> / <%= func.downvote %></td>
+        <td>
+          <div data-id="<%= func.id %>" class="fork button">Fork</div>
+          <div data-code="<%= func.code %>" class="viewcode button">View details</div>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+    </div>
+  </div>
+  <script>
+  $("#searchFunction").on("click",function(){
+      window.location.href="functions?name="+$("#functionName").val();
+  });
+
+  $(".viewcode").on("click",function(e){
+    $("#codecontent").text("Code: " + $(this).attr("data-code"));
+    $("#codemodal").show();
+  });
+
+  $(".fork").on("click",function(e){
+    $("#forkFunction").attr("base-functionid", $(this).attr("data-id"));
+    $("#forkmodal").show();
+  });
+
+  $("#forkFunction").on("click",function(e){
+    var functionID = $("#forkFunction").attr("base-functionid");
+    var name = $("#forkfunctionName").val();
+    $.post("/function/" + functionID +"/fork",
+      {
+        name: name
+      },
+      function(data, status){
+        $("#forkmodal").hide();
+      });
+  });
+  </script>
+</div>

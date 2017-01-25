@@ -1,0 +1,92 @@
+<div id="tables_page">
+
+  <div id="delete_function_modal" class="effect6 modal row">Delete this function? <div class="button button-primary"/></div>
+  <div class="row">
+        <div class="five columns offset-by-one">
+        </br>
+      <h2>My Stuff</h2>
+    </div>
+  </div>
+  </br>
+
+  <div class="row">
+    <div class="ten columns offset-by-one">
+      <label for="tableSearch">My Functions</label>
+  <table class="u-full-width" id="tables">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Rec</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% functions.forEach(function(func){ %>
+      <tr>
+        <td><%= func.name %></td>
+        <td><%= func.size %></td>
+        <td><%= func.rec %></td>
+        <td>
+          <div data-id="<%= func.id %>" class="button">Fork</div>
+          <div data-id="<%= func.id %>" class="button">View details</div>
+          <div data-id="<%= func.id %>" title="delete function" class="button delete_function"><i class="fa fa-times "/></div>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="ten columns offset-by-one">
+    <label for="tableSearch">My Tables</label>
+  <table class="u-full-width" id="tables">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Owner</th>
+      <th>Size</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% tables.forEach(function(table){ %>
+      <tr>
+        <td><%= table.name %></td>
+        <td><%= table.owner %></td>
+        <td><%= table.size %></td>
+        <td><%= table.status %></td>
+        <td>
+          <div data-id="<%= table.id %>" class="button">Add to list</div>
+          <div data-id="<%= table.id %>" class="button table_view_btn">View details</div>
+          <div data-id="<%= table.id %>" title="delete table" class="button delete_table"><i class="fa fa-times "/></div>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+    </div>
+  </div>
+<script>
+$(".delete_function").on("click",function(){
+  var function_id = $(this).attr("data-id");
+  $.post("/function/"+function_id+"/delete",
+    {},
+    function(data, status){
+      location.reload();
+    });
+});
+$(".delete_table").on("click",function(){
+  var table_id = $(this).attr("data-id");
+  $.post("/table/"+table_id+"/delete",
+    {},
+    function(data, status){
+      location.reload();
+    });
+});
+</script>
+</div>

@@ -1,0 +1,53 @@
+<div id="table_page">
+  <div id="blockmodal" class="modal"><div class="modal-closer fa fa-times" onclick="$(this).parent().hide();"></div><div id="blockcontent" class="modal-content"></div></div>
+
+  <div class="row">
+        <div class="ten columns offset-by-one">
+        </br>
+      <h2><i class="fa fa-arrow-left" title="back to table"></i> <%- chunk.name -%> details</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="ten columns offset-by-one">
+      <div style="width:481px;height:321px">
+      <div class="blocks">
+        <% blocks.forEach(function(block){ %>
+          <div data-id="<%- block.id -%>" class="block blockstate<%- block.state -%>" data-result="<%- block.result -%>" title="<%-  block.result -%>"></div>
+        <% }); %>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="ten columns offset-by-one">
+      <table class="u-full-width" id="tables">
+        <thead>
+          <tr>
+            <th>Chunk statistics</th>
+          </tr>
+        </thead>
+      <tbody>
+        <tr>
+          <td>Cell in progress</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Completed cells</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Total cell number</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  </br>
+  <script>
+    $(".block").on("click",function(e){
+      $("#blockcontent").text("Result: " + $(this).attr("data-result"));
+      $("#blockmodal").show();
+    });
+  </script>
+</div>

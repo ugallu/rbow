@@ -1,0 +1,17 @@
+<% if (error.length > 0) { %>
+<div class="alert alert-danger effect6">
+    <ul>
+        <% error.forEach(function(item){ %>
+        <li><%= item %></li>
+        <% }); %>
+    </ul>
+</div>
+
+<script>
+// hide alerts
+setTimeout(function(){
+  console.log("hei");
+  $(".alert").hide();
+}, 300000);
+</script>
+<% } %>

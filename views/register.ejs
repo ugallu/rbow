@@ -1,0 +1,60 @@
+<%- include('outerHeader') -%>
+<body>
+
+  <%- include('errorBox') -%>
+  <div id="registrationcontent" class="box effect6">
+    <p id="title">RBOW</p>
+    <div id="container">
+      <!-- The above form looks like this -->
+      <form action="/user" method="post">
+        <div class="row">
+          <div class="three columns offset-by-one">
+            <label for="exampleEmailInput">Registration</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="three columns offset-by-one">
+            <label for="exampleInput">Name</label>
+          </div>
+          <div class="seven columns ">
+            <input class="u-full-width" name="name" type="text" placeholder="Your nickname" id="exampleNameInput">
+          </div>
+        </div>
+        <div class="row">
+          <div class="three columns offset-by-one">
+            <label for="exampleEmailInput">Your email</label>
+          </div>
+          <div class="seven columns ">
+            <input class="u-full-width" name="email" type="email" placeholder="test@mailbox.com" id="exampleEmailInput">
+          </div>
+        </div>
+        <div class="row">
+          <div class="three columns offset-by-one">
+            <label for="exampleEmailInput">Password</label>
+          </div>
+          <div class="five columns">
+            <input class="u-full-width" name="password" type="password" placeholder="password" id="examplePasswordInput">
+          </div>
+        </div>
+        <div class="row">
+          <div class="three columns offset-by-one">
+            <label for="exampleEmailInput">Password again</label>
+          </div>
+          <div class="five columns">
+            <input class="u-full-width" name="password2" type="password" placeholder="password" id="examplePassword2Input">
+          </div>
+        </div>
+        <div class="row">
+          <div class="eight columns offset-by-four">
+            <!--
+            <input class="button" type="submit" value="Register">
+            <input class="button-primary" type="submit" value="Back to Login">-->
+            <a href="/" class="button">Back to Login</a>
+            <input type="submit" class="button button-primary" value="Register" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+<%- include('outerFooter') -%>

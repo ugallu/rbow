@@ -1,0 +1,31 @@
+<%- include('outerHeader') -%>
+<body>
+<%- include('errorBox') -%>
+<div id="content" class="box effect6">
+  <p id="title">RBOW</p>
+  <div id="container">
+    <!-- The above form looks like this -->
+<form action="/login" method="post">
+  <div class="row">
+    <div class="five columns offset-by-one">
+      <label for="exampleEmailInput">Your email</label>
+      <input class="u-full-width" name="email" type="email" placeholder="Click to the Login" id="exampleEmailInput">
+    </div>
+    <div class="five columns">
+      <label for="examplePasswordInput">Your password</label>
+      <input class="u-full-width" name="password" type="password" placeholder="password" id="examplePasswordInput">
+    </div>
+  </div>
+  </br>
+  <div class="row">
+    <div class="six columns offset-by-five">
+      <!--<input href="register.html" class="button" type="submit" value="Register">
+      <input href="login.html" class="button-primary" type="submit" value="Login">-->
+      <a href="/register" class="button">Register</a>
+      <input type="submit" class="button button-primary" value="Login" />
+    </div>
+  </div>
+</form>
+  </div>
+</div>
+<%- include('outerFooter') -%>

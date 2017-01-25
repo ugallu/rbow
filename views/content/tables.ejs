@@ -1,0 +1,58 @@
+<div id="tables_page">
+
+  <div class="row">
+        <div class="five columns offset-by-one">
+        </br>
+      <h2>Tables</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="ten columns offset-by-one">
+    <a href="tables?abc" class="button">ABC</a>
+    <a href="tables?date" class="button">Latest</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="seven columns offset-by-one">
+      <input class="u-full-width" type="text" placeholder="tableName" id="tableName">
+    </div>
+    <div class="two columns">
+      <div id="searchTable" class="button">Search</div>
+    </div>
+  </div>
+  </br>
+  <div class="row">
+    <div class="ten columns offset-by-one">
+  <table class="u-full-width" id="tables">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Owner</th>
+      <th>Size</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% tables.forEach(function(table){ %>
+      <tr>
+        <td><%= table.name %></td>
+        <td><%= table.owner %></td>
+        <td><%= table.size %></td>
+        <td><%= table.status %></td>
+        <td>
+          <div data-id='<%= table._id %>' class="button table_add">Add to list</div>
+          <div data-id='<%= table._id %>' class="button table_view_btn">View details</div>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+    </div>
+  </div>
+  <script>
+    $("#searchTable").on("click",function(){
+      window.location.href="tables?name="+$("#tableName").val();
+    });
+  </script>
+</div>
